@@ -51,7 +51,7 @@ App = {
   },
 
   initContract: function () {
-    $.getJSON('../Social.json', function (data) {
+    $.getJSON('Social.json', function (data) {
       // Get the necessary contract artifact file and instantiate it with truffle-contract
       var SocialArtifact = data;
       App.contracts.Social = TruffleContract(SocialArtifact);
