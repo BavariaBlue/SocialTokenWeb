@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Social Token</title>
+  <!-- Bootstrap -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- app CSS -->
+  <link href="../css/app.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">SocialToken</h1>
+          <hr />
+          <br />
+          <div class="noMetaMask">
+            <div class="alert alert-danger text-center" role="alert">Please sign in to MetaMask. <br />
+              You can install MetaMask from <a href="https://metamask.io/" class="alert-link"
+                target="_blank">https://metamask.io/</a>.</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h3 class="text-center">Choose your side!</h3>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-sm-6 col-md-6 leftSide" align="center">
+          <img src="images/landingPageLeft.png" alt"Donor">
+          <button class="btn btn-primary btn-lg btn-switchDonorView" type="button">Donor View</button>
+        </div>
+        <div class="col-sm-6 col-md-6 rightSide" align="center">
+          <img src="images/landingPageRight.png" alt"Homeless">
+          <button class="btn btn-success btn-lg btn-switchHomelessView" type="button">Homeless View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="viewDonor">
+    <div class="text-center">
+      <br />
+      <button class="btn btn-success btn-lg btn-switchHomeView" type="button">Home View</button>
+    </div>
+    <hr />
+    <div class="transactionPending">
+      <div class="alert alert-success text-center" role="alert">Your transaction has been confirmed.
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="text-center">
+            <h3>Get some tokens first</h3>
+            <br />
+          </div>
+          1 SocialToken (ST) costs 0,00000624 ETH. At the moment this is about 0,001€.<br />
+          How many SocialTokens do you want to buy?
+          <div class="radio">
+            <label><input type="radio" name="selectAmountEuro" value=1 id="initial">1000 ST / ~1€</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="selectAmountEuro" value=2>2000 ST / ~2€</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="selectAmountEuro" value=5>5000 ST / ~5€</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="selectAmountEuro" value=0>Other: </label>
+            <input id="otherAmount" type="number" min="500" step="500" max="99999500" disabled>ST
+          </div>
+          <div class="euroAmountSelected">
+            <div class="text-center">
+              <br />Buy <tokenAmount></tokenAmount> SocialTokens <br />
+              <small>This corresponds to <ethAmount></ethAmount> Ether which is about <euroAmount></euroAmount>€.<br /><br /></small>
+              <button class="btn btn-primary btn-PurchaseToken" type="but ton" data-id="0">Buy SocialToken</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+          <div class="text-center">
+            <h3>Donate your tokens</h3>
+            <br />
+          </div>
+          Your current balance of SocialTokens: <currentBalance></currentBalance>
+          <br />
+          <br />
+          <br />
+          Please enter an amount and choose an address you want to donate SocialTokens to:
+          <br />
+          <br />
+          Amount of SocialTokens:
+          <input id="numberOfDonatedTokens" type="number" min="500" step="500">ST
+          <br />
+          <div class="radio">
+            <label><input type="radio" name="selectHomeless" value=1>Homeless 1 <br /> Address: <addressHomeless1>
+              </addressHomeless1> <br /> Owned SocialTokens: <ownedSocialTokens1></ownedSocialTokens1></label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="selectHomeless" value=2>Homeless 2 <br /> Address: <addressHomeless2>
+              </addressHomeless2> <br /> Owned SocialTokens: <ownedSocialTokens2></ownedSocialTokens2></label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="selectHomeless" value=3>Homeless 3 <br /> Address: <addressHomeless3>
+              </addressHomeless3> <br /> Owned SocialTokens: <ownedSocialTokens3></ownedSocialTokens3></label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="selectHomeless" value=0>Address of a Homeless:</label>
+            <input id="addressOfHomeless" type="text">
+          </div>
+          <br />
+          <div class="text-center">
+            <button class="btn btn-primary btn-donateToken" id="test" type="button">Donate SocialToken</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="viewHomeless">
+    <div class="text-center">
+      <br />
+      <button class="btn btn-success btn-lg btn-switchHomeView" type="button">Home View</button>
+    </div>
+    <hr />
+    <div class="transactionPending">
+      <div class="alert alert-success text-center" role="alert">Your transaction has been confirmed.
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4">
+          <div class="hintLowTokenAmount">
+            <div class="alert alert-warning text-center" role="alert">You can get more SocialTokens in the donor view.
+            </div>
+          </div>
+          </br>
+          </br>
+          Your current address: <spenderAddress></spenderAddress>
+          </br>
+          </br>
+          Your current balance of SocialTokens: <spenderBalance></spenderBalance>
+          </br>
+          </br>
+          <strong>Basket</strong>
+          <hr />
+          <div class="emptyBasket">Your basket is empty</div>
+          <div class="notEnoughFunds">
+            <div class="alert alert-danger text-center" role="alert">Not enough SocialTokens.
+            </div>
+          </div>
+          <div id="basketRow" class="row">
+            <!--Shopping Cart loads here-->
+          </div>
+          <hr />
+          <div class="col-md-6 col-sm-6">
+            Sum
+          </div>
+          <div class="col-md-6 col-sm-6 rightSideBasket">
+            <tokenSumOfPurchase>0</tokenSumOfPurchase> ST
+          </div>
+          </br>
+          </br>
+          <button class="btn btn-success btn-buyItems center" type="button" data-sum="0" disabled>Buy</button>
+        </div>
+        <div class="col-md-8 col-sm-8">
+          <div id="itemRow" class="row">
+            <!--Items load here-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="basketTemplate" style="display: none;">
+    <div class="col-sm-12 col-md-12">
+      <div class="panel panel-default panel-basket">
+        <div class="panel-body">
+          <div class="col-sm-2 col-md-2">
+            <span class="itemAmount">0</span>
+          </div>
+          <div class="col-sm-6 col-md-6">
+            <span class="itemName">John Dorian</span>
+          </div>
+          <div class="col-sm-4 col-md-4 rightSideBasket">
+            <span class="itemPrice">69</span> ST
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="itemTemplate" style="display: none;">
+    <div class="col-sm-4 col-md-4">
+      <div class="panel panel-default panel-item">
+        <div class="panel-heading">
+          <h3 class="panel-title">Item</h3>
+        </div>
+        <div class="panel-body">
+          <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center img-item center"
+            src="images/items/sausageSalad.png" data-holder-rendered="true">
+          <span class="itemPrice">69ST</span>
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus"
+                data-field="quant[0]">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </span>
+            <input type="text" name="quant[0]" class="form-control input-number" value="0" min="0" max="10"
+              data-price="0" data-name="0" data-id="0">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[0]">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
